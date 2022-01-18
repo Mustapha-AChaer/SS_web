@@ -1,0 +1,36 @@
+@import 'src/scss/vars';
+
+.custom-navbar{
+    .navbar-menu{
+        .navbar-item{
+            &:hover{
+                background: rgba(0,0,0,0) !important;
+                color: $hblue !important;
+                h1{
+                    color: $hblue !important;
+                }
+            }
+
+            &.is-active{
+                color: $hblue !important;
+            }
+
+            &:focus{
+                background: rgba($hdarkblue, 0.0) !important;
+            }
+
+        }
+        @media (max-width: 1024px) {
+
+            .navbar-item{
+                text-align: center;
+            }
+            background: $hdarkblue;
+        }
+
+    }
+    transition: 0.5s;
+
+    border-bottom: 1px solid rgba($hblue, 0.1);
+}
+
