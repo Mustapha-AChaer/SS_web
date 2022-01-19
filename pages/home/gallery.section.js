@@ -13,11 +13,12 @@ import styles from './home.module.scss';
 const options = {
     type: 'loop',
     rewind: false,
-    arrows: 'true',
+    arrows: 'slider',
     perPage: 4,
     isNavigation: false,
     pagination: true,
     perMove: 1,
+    autoplay: true,
     breakpoints: {
         1200: {perPage: 3},
         800: {perPage: 2},
@@ -31,25 +32,23 @@ const GallerySection = () => {
     return(
         <Fragment>
             <h1 className={`title has-text-white has-text-centered mb-6 is-size-2 ${styles.title}`} data-title="GALLERY">GALLERY</h1>
-            <br/><br/><br/>
+            <br/>
 
             <div className="container">
                     
-                 <Splide options={options}> 
-
+                 <Splide options={options}>
                     {
                         data.map((item, i) =>                                 
-                            <SplideSlide key={i}>
+                            <SplideSlide key={i} hasSliderWrapper hasAutoplayControls hasAutoplayProgress>
                                 <div className="mx-3">
                                     <video src={item.src} autoPlay loop muted playsInline/>
-                                </div>                                
+                                </div>
                             </SplideSlide>
                         )
-                        
-                    }                    
+                    }
                   </Splide> 
             </div>
-            <br/><br/><br/>
+           
         </Fragment>
     );
 }

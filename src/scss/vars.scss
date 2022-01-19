@@ -5,11 +5,12 @@ $hblue: #46bdf4;
 $hdarkblue: #0B0C22;
 $hdarkblue2: #10122D;
 $hdeepblue: #04091A;
+$hdarkpurple: #110B2F;
 $hblack: #000;
 $hwhite: #fff;
 
 $hgra1: linear-gradient(90deg, $hpurple 0%, $hblue 100%);
-$hgra2: linear-gradient(0deg, $hdarkblue 0%, $hdarkblue2 100%);
+$hgra2: linear-gradient(0deg, $hdarkblue2 0%, $hdarkblue 100%);
 
 $hcolors: (
     hpurple: $hpurple,
@@ -18,9 +19,12 @@ $hcolors: (
     hblack: $hblack,
     hwhite: $hwhite,
     hdeepblue: $hdeepblue,
+    hdarkpurple: $hdarkpurple
 );
 
 $hgras: (
     hgra1: $hgra1,
     hgra2: $hgra2,
 );
+
+$z-index-glasspanel: 1000;

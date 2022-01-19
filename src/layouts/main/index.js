@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Navbar from "src/components/navbar";
-// import Footer from "src/components/commons/footer";
+import Footer from "src/components/footer";
 
 const MainLayout = props => {
 
@@ -8,7 +8,7 @@ const MainLayout = props => {
         <Fragment>            
             <Navbar />               
             {props.children}
-            {/* <Footer /> */}
+            <Footer />
         </Fragment>
     );
 }

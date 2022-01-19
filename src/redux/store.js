@@ -1,10 +1,10 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
-import exampleReducer from './reducers/exampleReducer';
+import modalReducer from './reducers/modalReducer';
 
 const reducer = combineReducers({    
-    exampleReducer
+    modalReducer
 });
 
 const store = createStore(reducer, applyMiddleware(thunk));
