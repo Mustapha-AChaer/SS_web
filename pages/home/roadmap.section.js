@@ -6,8 +6,6 @@ import roadmapData from 'src/static/roadmap.data';
 
 import logo from 'src/media/logo.gif';
 
-import { StickyContainer, Sticky } from 'react-sticky';
-
 const AboutSection = () => {
     return (
         <Fragment>

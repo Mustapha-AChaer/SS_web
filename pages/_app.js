@@ -17,6 +17,7 @@ import { custom_notification_types } from 'src/static/notifications';
 import 'src/scss/main.scss';
 import 'src/components/navbar/navbar.scss';
 import 'splide-nextjs/splide/dist/css/themes/splide-default.min.css';
+import 'animate.css';
 import 'react-notifications-component/dist/theme.css';
 
 const fontAwesomeKey = process.env.FONT_AWESOME_KEY;
