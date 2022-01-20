@@ -19,8 +19,6 @@ const TeamSection = () => {
                 TEAM
             </h1>
             <br />
-            <br />
-            <br />
 
             <div className="container ">
                 <div className="columns is-multiline">

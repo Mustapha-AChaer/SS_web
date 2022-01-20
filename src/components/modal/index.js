@@ -34,7 +34,6 @@ const Modal = (props) => {
 
 Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    modalName: PropTypes.string.isRequired,
     children: PropTypes.node,
 };
 

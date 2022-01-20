@@ -1,27 +1,26 @@
-.particles_bg{
+.particles_bg {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100vh;    
+    height: 100vh;
     z-index: -1;
-    
 }
 
-.logo_bg{
+.logo_bg {
     background: url(../../src/media/logo.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     opacity: 0.85;
     height: 100%;
-    min-height: 400px;    
+    min-height: 400px;
 }
 
-.minted_title{
+.minted_title {
     position: relative;
     z-index: 2;
-    &::before{
-        content: "MINTED";
+    &::before {
+        content: 'MINTED';
         position: absolute;
         left: 50%;
         top: 50%;
@@ -29,15 +28,14 @@
         font-size: 12rem;
         color: rgba(0, 0, 0, 0.1);
         z-index: 0;
-
     }
 }
 
-.title{
+.title {
     position: relative;
     z-index: 10;
-    &::before{
-        content: attr(data-title) " ";
+    &::before {
+        content: attr(data-title) ' ';
         position: absolute;
         left: 50%;
         top: 25%;
@@ -47,23 +45,68 @@
         z-index: -1;
         white-space: nowrap;
 
-        @media (max-width: 768px){
+        @media (max-width: 768px) {
             font-size: 4rem;
             top: 50%;
         }
-
     }
 }
 
-.box{
+.box {
     transition: 0.3s ease-in-out;
     height: 100%;
-    &:hover{
+    &:hover {
         box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
     }
 }
 
-.team_box{
- 
+.team_box {
     border: 8px solid white;
+}
+
+.timeline_item {
+    &::before {
+        background-color: white !important;
+        width: 5px !important;
+        left: -1.5px !important;
+        transition: 0.3s ease-in-out;
+    }
+    &:hover {
+        &::before {
+            opacity: 0.6 !important;
+            width: 5px;
+        }
+
+        .timeline_marker {
+            &::after {
+                opacity: 0.6 !important;
+            }
+        }
+    }
+}
+
+.timeline_marker {
+    display: grid !important;
+    place-items: center !important;
+    box-shadow: 0px 0px 20px white !important;
+    transform: translate(-50%, 35px) !important;
+    width: 40px !important;
+    height: 40px !important;
+    position: relative;
+
+    z-index: 3;
+    overflow: visible !important;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 30px;
+        width: 60px;
+        height: 5px;
+        background: white;
+        opacity: 0.3;
+        z-index: 2;
+    }
 }

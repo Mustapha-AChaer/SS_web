@@ -1,3 +1,5 @@
+$timeline-line: 5px solid white;
+
 @import './color-helpers';
 @import './gradient-helpers';
 @import './z-index-helpers';
@@ -7,9 +9,12 @@
 @import './issues-helper';
 @import './customs.scss';
 @import './vars';
+@import '~bulma-timeline';
 @import '~bulma';
 
-html, body, #__next{
+html,
+body,
+#__next {
     // height: 100%;
     width: 100%;
     margin: 0;
@@ -18,10 +23,9 @@ html, body, #__next{
     @extend .coolscroll;
 
     // overflow: hidden;
-
 }
 
-#__next{
+#__next {
     height: auto;
     position: relative;
 }

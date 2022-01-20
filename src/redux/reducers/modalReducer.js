@@ -1,8 +1,8 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../constants.js';
 
 const defaultState = {
-    teamModal: { isOpen: true, data: {} },
-    currentModal: 'teamModal',
+    teamModal: { isOpen: false, data: {} },
+    currentModal: '',
 };
 
 const reducer = (state = defaultState, action) => {
