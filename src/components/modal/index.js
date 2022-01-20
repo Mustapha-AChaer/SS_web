@@ -1,55 +1,41 @@
-import { useEffect, useRef } from 'react';
-
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { close_modal } from 'src/redux/actions/modalActions';
 
-const Modal = props => {
-
+const Modal = (props) => {
+    const { currentModal } = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
 
-    let ref = useRef(null);
+    const onClick = () => {
+        dispatch(close_modal(currentModal));
+    };
 
-    useEffect(
-        () => {
+    //close modal on esc key press
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') dispatch(close_modal(currentModal));
+        };
 
-            const handleClickOutside = e => {        
-                if (ref.current && !ref.current.contains(e.target))
-                    dispatch(close_modal(props.modalName));
-            };
-        
-            const closeOnEsc = e => {
-                if(e.keyCode === 27)
-                    dispatch( close_modal(props.modalName) );
-            }
+        window.addEventListener('keydown', handleKeyDown);
 
-            if(props.isOpen){
-                document.addEventListener('mousedown', handleClickOutside);
-                window.addEventListener('keydown', closeOnEsc);
-            }
-                
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [dispatch, currentModal]);
 
-            return () =>{
-                document.removeEventListener('mousedown', handleClickOutside);
-                window.removeEventListener('keydown', closeOnEsc);
-            } 
-
-        }, [props.isOpen, dispatch, props.modalName]
-    );
-
-    return(
-        <div ref={ref} className={` panel-modal resize-manager is-above-glasspanel ${props.isOpen ? 'isOpen' : ''}`}>
-            { props.children }
+    return (
+        <div className={`modal is-above-glasspanel ${props.isOpen ? 'is-active' : ''}`} onClick={onClick}>
+            <div className="modal-background has-background-hpurple-o-2 has-bg-blur-2"></div>
+            <div className="modal-content px-4">{props.children}</div>
+            <button className="modal-close is-large" aria-label="close" onClick={onClick}></button>
         </div>
     );
-}
+};
 
 Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     modalName: PropTypes.string.isRequired,
-    children: PropTypes.node
+    children: PropTypes.node,
 };
-
 
 export default Modal;

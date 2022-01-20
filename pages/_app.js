@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Script from 'next/script';
 
 import GlassPanel from 'src/components/glass-panel';
+import TeamModal from 'src/components/modal/team-modal';
 
 import { Provider } from 'react-redux';
 import store from 'src/redux/store';
@@ -11,7 +12,7 @@ const CelesteProvider = dynamic(() => import('src/components/celeste'), { ssr: f
 
 //extern components
 import ReactNotification from 'react-notifications-component';
-import {custom_notification_types} from 'src/static/notifications';
+import { custom_notification_types } from 'src/static/notifications';
 
 import 'src/scss/main.scss';
 import 'src/components/navbar/navbar.scss';
@@ -20,25 +21,23 @@ import 'react-notifications-component/dist/theme.css';
 
 const fontAwesomeKey = process.env.FONT_AWESOME_KEY;
 
-function MyApp({ Component, pageProps }) {  
-    return(
+function MyApp({ Component, pageProps }) {
+    return (
         <Provider store={store}>
-            <CelesteProvider>        
+            <CelesteProvider>
                 <Head>
                     <title>Surreal Society</title>
-                        
-                </Head> 
-                <Script src={`https://kit.fontawesome.com/${fontAwesomeKey}.js`} ></Script>
+                </Head>
+                <Script src={`https://kit.fontawesome.com/${fontAwesomeKey}.js`}></Script>
 
-                <ReactNotification
-                    types={custom_notification_types}
-                />
+                <ReactNotification types={custom_notification_types} />
 
-                <GlassPanel />
+                {/* <GlassPanel /> */}
+                <TeamModal />
 
-                <Component {...pageProps} />  
+                <Component {...pageProps} />
             </CelesteProvider>
-        </Provider> 
+        </Provider>
     );
 }
 

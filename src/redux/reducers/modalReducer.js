@@ -1,42 +1,29 @@
-import {
-    OPEN_MODAL,
-    CLOSE_MODAL
-} from '../constants.js';
+import { OPEN_MODAL, CLOSE_MODAL } from '../constants.js';
 
 const defaultState = {
-    teamMemberModal: {isOpen: false},
-    glassPanel: {isOpen: true}
+    teamModal: { isOpen: true, data: {} },
+    currentModal: 'teamModal',
 };
 
 const reducer = (state = defaultState, action) => {
-
     switch (action.type) {
-
         case OPEN_MODAL:
-            return{
+            return {
                 ...state,
-                [action.modalName]: {
-                    isOpen: true
-                },
-                glassPanel: {
-                    isOpen: true
-                }
+                [action.modalName]: { isOpen: true, data: action.data },
+                currentModal: action.modalName,
             };
 
         case CLOSE_MODAL:
-            return{
+            return {
                 ...state,
-                [action.modalName]: {
-                    isOpen: false
-                },
-                glassPanel: {
-                    isOpen: false
-                }
+                [action.modalName]: { isOpen: false, data: {} },
+                currentModal: '',
             };
 
         default:
-            return {...state};
+            return { ...state };
     }
-}
+};
 
 export default reducer;

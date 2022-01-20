@@ -1,11 +1,11 @@
-@use "sass:map";
+@use 'sass:map';
 
 $hpurple: #7a0fff;
 $hblue: #46bdf4;
-$hdarkblue: #0B0C22;
-$hdarkblue2: #10122D;
-$hdeepblue: #04091A;
-$hdarkpurple: #110B2F;
+$hdarkblue: #0b0c22;
+$hdarkblue2: #10122d;
+$hdeepblue: #04091a;
+$hdarkpurple: #110b2f;
 $hblack: #000;
 $hwhite: #fff;
 
@@ -19,7 +19,7 @@ $hcolors: (
     hblack: $hblack,
     hwhite: $hwhite,
     hdeepblue: $hdeepblue,
-    hdarkpurple: $hdarkpurple
+    hdarkpurple: $hdarkpurple,
 );
 
 $hgras: (
@@ -28,3 +28,4 @@ $hgras: (
 );
 
 $z-index-glasspanel: 1000;
+$modal-content-width: 1000px;

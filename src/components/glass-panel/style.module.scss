@@ -1,20 +1,18 @@
 @import 'src/scss/vars';
 
-.glass-panel{
-
+.glass_panel {
     display: none;
 
     position: fixed;
     width: 100vw;
     height: 100vh;
 
-
     background: rgba($hpurple, 0.25);
     backdrop-filter: blur(10px);
 
     z-index: $z-index-glasspanel;
 
-    &.isOpen{
+    &.isOpen {
         display: block !important;
     }
 }
