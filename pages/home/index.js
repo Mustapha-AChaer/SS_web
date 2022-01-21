@@ -1,4 +1,9 @@
+import MainLayout from 'src/layouts/main';
+import SectionLayout from 'src/layouts/section';
+
 import ParticlesBanner from 'src/components/banner-background';
+
+import MintSection from './mint.section';
 
 import AboutSection from './about.section';
 import GallerySection from './gallery.section';
@@ -6,8 +11,7 @@ import RoadmapSection from './roadmap.section';
 import TeamSection from './team.section';
 import FaqSection from './faq.section';
 
-import MainLayout from 'src/layouts/main';
-import SectionLayout from 'src/layouts/section';
+import { ConnectedWrapper } from 'celeste-framework';
 
 import styles from './home.module.scss';
 
@@ -47,7 +51,15 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button>
+                                <ConnectedWrapper
+                                    disconnectedComponent={
+                                        <button className="button is-medium is-hgra1 has-text-white px-6">
+                                            JOIN DISCORD
+                                        </button>
+                                    }
+                                >
+                                    <MintSection />
+                                </ConnectedWrapper>
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>

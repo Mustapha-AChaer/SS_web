@@ -10,6 +10,8 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
         const animationName = `${prefix}${animation}`;
         const node = document.querySelector(element);
 
+        if (node === null) return;
+
         node.classList.add(`${prefix}animated`, animationName);
 
         // When the animation ends, we clean the classes and resolve the Promise

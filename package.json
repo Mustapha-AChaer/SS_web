@@ -12,6 +12,7 @@
     "bulma": "^0.9.3",
     "bulma-timeline": "^3.0.5",
     "celeste-framework": "^1.3.7",
+    "formik": "^2.2.9",
     "next": "12.0.7",
     "node-sass": "^6.0.1",
     "react": "17.0.2",
@@ -22,7 +23,8 @@
     "react-tsparticles": "^1.39.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "splide-nextjs": "^2.4.23"
+    "splide-nextjs": "^2.4.23",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.5.0",
