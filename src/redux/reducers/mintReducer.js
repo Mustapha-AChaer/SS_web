@@ -1,4 +1,11 @@
-import { TX_LOADING, TX_FAILED, TX_SUCCESS, SET_USER_IS_WHITE_LISTED, SET_MINTS_LEFT } from '../constants';
+import {
+    TX_LOADING,
+    TX_FAILED,
+    TX_SUCCESS,
+    SET_USER_IS_WHITE_LISTED,
+    SET_MINTS_LEFT,
+    SET_TOTAL_WHITE_MINTS,
+} from '../constants';
 
 const generic_tx = {
     loading: false,
@@ -52,6 +59,12 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 mintsLeft: 10 - action.payload,
+            };
+
+        case SET_TOTAL_WHITE_MINTS:
+            return {
+                ...state,
+                totalWhiteMints: action.payload,
             };
 
         default:

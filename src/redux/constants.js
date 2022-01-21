@@ -8,3 +8,4 @@ export const TX_FAILED = 'TX_FAILED';
 export const TX_SUCCESS = 'TX_SUCCESS';
 export const SET_USER_IS_WHITE_LISTED = 'SET_USER_IS_WHITE_LISTED';
 export const SET_MINTS_LEFT = 'SET_MINTS_LEFT';
+export const SET_TOTAL_WHITE_MINTS = 'SET_TOTAL_WHITE_MINTS';

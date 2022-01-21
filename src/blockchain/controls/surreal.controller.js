@@ -1,9 +1,14 @@
 import celesteStore from 'celeste-framework/dist/store';
 import co from 'src/components/celeste/celeste-options';
 
+import surrealABI from 'src/blockchain/abis/surreal.json';
+
 const surreal_controller = () => {
+    const surrealAddress = co.addressBook.SURREAL;
+
     const contracts = celesteStore.getState().web3Reducer.contracts;
     const contract = contracts.SURREAL;
+    const contract_read = contracts.SURREAL_READ;
 
     return {
         whiteListed: async (address) => {
@@ -17,7 +22,7 @@ const surreal_controller = () => {
             return tx;
         },
         totalSupply: async () => {
-            return await contract.methods.totalSupply().call();
+            return await contract_read.methods.totalSupply().call();
         },
     };
 };

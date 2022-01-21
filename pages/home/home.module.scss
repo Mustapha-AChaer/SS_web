@@ -18,7 +18,7 @@
 
 .minted_title {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     &::before {
         content: 'MINTED';
         position: absolute;

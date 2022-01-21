@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import MainLayout from 'src/layouts/main';
 import SectionLayout from 'src/layouts/section';
 
@@ -11,11 +13,23 @@ import RoadmapSection from './roadmap.section';
 import TeamSection from './team.section';
 import FaqSection from './faq.section';
 
-import { ConnectedWrapper, NetworkWrapper, SwitchNetworkButton } from 'celeste-framework';
+import { ConnectedWrapper, NetworkWrapper, SwitchNetworkButton, useCelesteSelector } from 'celeste-framework';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { fetch_total_white_mints } from 'src/redux/actions/mintActions';
 
 import styles from './home.module.scss';
 
 const Home = () => {
+    const { web3Reducer } = useCelesteSelector((state) => state);
+    const { mintReducer } = useSelector((state) => state);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!web3Reducer.initialized) return;
+        dispatch(fetch_total_white_mints());
+    }, [web3Reducer]);
+
     return (
         <MainLayout>
             <div className={`${styles.particles_bg}`} style={{ height: '100vh' }}>
@@ -51,8 +65,8 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button>
-                                {/* <ConnectedWrapper
+                                {/* <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button> */}
+                                <ConnectedWrapper
                                     disconnectedComponent={
                                         <button className="button is-medium is-hgra1 has-text-white px-6">
                                             JOIN DISCORD
@@ -72,7 +86,7 @@ const Home = () => {
                                     >
                                         <MintSection />
                                     </NetworkWrapper>
-                                </ConnectedWrapper> */}
+                                </ConnectedWrapper>
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>
@@ -114,11 +128,13 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="hero is-small is-hgra1" style={{ overflow: 'hidden' }}>
+            <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
-                    <h1 className={`title has-text-white is-4 has-text-weight-bold ${styles.minted_title}`}>
-                        CONNECT YOUR WALLET TO ACTIVATE THE MINT TRACKER
-                    </h1>
+                    <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
+                        <progress class="progress is-info" value={(mintReducer.totalWhiteMints / 1500) * 100} max="100">
+                            30%
+                        </progress>
+                    </div>
                 </div>
             </section>
 

@@ -11,12 +11,12 @@ const celesteOptions = {
         {
             key: 'SURREAL',
             abi: surrealABI,
-            address: '0x0c423De818c6e83Dd8564CC18A4CC6C7C0B8E455',
+            address: '0x4315295e0c728d5093d2E0eB19208Fcbe3928023',
             isMultichain: false,
         },
     ],
     addressBook: {
-        SURREAL: '0x0c423De818c6e83Dd8564CC18A4CC6C7C0B8E455',
+        SURREAL: '0x4315295e0c728d5093d2E0eB19208Fcbe3928023',
     },
 };
 

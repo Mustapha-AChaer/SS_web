@@ -94,7 +94,7 @@ const Navbar = (props) => {
                                 onClick={onBurgerClicked2}
                             >
                                 <span className="icon has-text-white">
-                                    <i className="fab fa-twitter"></i>
+                                    <i className="fak fa-opensea"></i>
                                 </span>
                             </a>
                         </div>

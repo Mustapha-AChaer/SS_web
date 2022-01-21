@@ -1,4 +1,11 @@
-import { TX_LOADING, TX_FAILED, TX_SUCCESS, SET_USER_IS_WHITE_LISTED, SET_MINTS_LEFT } from '../constants';
+import {
+    TX_LOADING,
+    TX_FAILED,
+    TX_SUCCESS,
+    SET_USER_IS_WHITE_LISTED,
+    SET_MINTS_LEFT,
+    SET_TOTAL_WHITE_MINTS,
+} from '../constants';
 import { store as notificationStore } from 'react-notifications-component';
 import { successNotification, errorNotification, infoNotification } from 'src/static/notifications';
 import celesteOptions from 'src/components/celeste/celeste-options';
@@ -13,6 +20,7 @@ const tx_success = (txName, data) => ({ type: TX_SUCCESS, txName, data });
 
 const set_user_is_white_listed = (isWhiteListed) => ({ type: SET_USER_IS_WHITE_LISTED, payload: isWhiteListed });
 const set_mints_left = (mintsLeft) => ({ type: SET_MINTS_LEFT, payload: mintsLeft });
+const set_total_white_mints = (totalWhiteMints) => ({ type: SET_TOTAL_WHITE_MINTS, payload: totalWhiteMints });
 
 /* *~~*~~*~~*~~*~~*~~* TX THUNKER ACTIONS *~~*~~*~~*~~*~~*~~* */
 export const white_mint_tx = (txArguments) => {
@@ -34,8 +42,6 @@ export const white_mint_tx = (txArguments) => {
                 from: walletReducer.address,
                 value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
             });
-
-            console.log(res);
 
             dispatch(tx_success('whiteMintTx', res));
 
@@ -59,7 +65,7 @@ export const white_mint_tx = (txArguments) => {
 };
 
 export const fetch_user_white_listed = () => {
-    return async (dispatch, getState, celesteStore) => {
+    return async (dispatch, _getState, celesteStore) => {
         const { walletReducer } = celesteStore.getState();
 
         const surreal = new surreal_controller();
@@ -70,12 +76,22 @@ export const fetch_user_white_listed = () => {
 };
 
 export const fetch_mints_left = () => {
-    return async (dispatch, getState, celesteStore) => {
+    return async (dispatch, _getState, celesteStore) => {
         const { walletReducer } = celesteStore.getState();
 
         const surreal = new surreal_controller();
         const userMintsLeft = await surreal.userWhiteMints(walletReducer.address);
 
         dispatch(set_mints_left(userMintsLeft));
+    };
+};
+
+export const fetch_total_white_mints = () => {
+    return async (dispatch) => {
+        const surreal = new surreal_controller();
+        const totalSupply = await surreal.totalSupply();
+        const initialMints = 10;
+        const tatal_white_mints = totalSupply - initialMints;
+        dispatch(set_total_white_mints(tatal_white_mints));
     };
 };
