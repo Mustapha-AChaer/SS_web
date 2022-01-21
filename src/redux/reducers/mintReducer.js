@@ -11,6 +11,7 @@ const defaultState = {
     whiteMintTx: { ...generic_tx },
     userIsWhiteListed: false,
     mintsLeft: 0,
+    totalWhiteMints: 0,
 };
 
 const reducer = (state = defaultState, action) => {

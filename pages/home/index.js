@@ -11,7 +11,7 @@ import RoadmapSection from './roadmap.section';
 import TeamSection from './team.section';
 import FaqSection from './faq.section';
 
-import { ConnectedWrapper } from 'celeste-framework';
+import { ConnectedWrapper, NetworkWrapper, SwitchNetworkButton } from 'celeste-framework';
 
 import styles from './home.module.scss';
 
@@ -51,15 +51,28 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                <ConnectedWrapper
+                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button>
+                                {/* <ConnectedWrapper
                                     disconnectedComponent={
                                         <button className="button is-medium is-hgra1 has-text-white px-6">
                                             JOIN DISCORD
                                         </button>
                                     }
                                 >
-                                    <MintSection />
-                                </ConnectedWrapper>
+                                    <NetworkWrapper
+                                        info={
+                                            <SwitchNetworkButton
+                                                chainId={1}
+                                                className="button is-medium is-hgra1 has-text-white px-6"
+                                            >
+                                                Switch to eth mainnet
+                                            </SwitchNetworkButton>
+                                        }
+                                        chainIds={[1]}
+                                    >
+                                        <MintSection />
+                                    </NetworkWrapper>
+                                </ConnectedWrapper> */}
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>
