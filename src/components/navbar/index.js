@@ -64,19 +64,21 @@ const Navbar = (props) => {
                             Home
                         </a>
 
-                        <a href="#benefitst" className="navbar-item has-text-white">
+                        <a href="#benefits" className="navbar-item has-text-white">
                             Benefits
                         </a>
 
-                        <a href="#services" className="navbar-item has-text-white">
+                        <a href="#gallery" className="navbar-item has-text-white">
                             Gallery
                         </a>
 
-                        <a href="#team" className="navbar-item has-text-white">
+                        <a href="#roadmap" className="navbar-item has-text-white">
                             Road Map
                         </a>
 
-                        <a className="navbar-item has-text-white ">Team</a>
+                        <a href="#team" className="navbar-item has-text-white ">
+                            Team
+                        </a>
 
                         <a href="#faq" className="navbar-item has-text-white">
                             FAQ's

@@ -37,7 +37,7 @@ const Home = () => {
                 <ParticlesBanner />
             </div>
 
-            <div className="" style={{ minHeight: '85vh', position: 'relative' }}>
+            <div id="home" className="" style={{ minHeight: '85vh', position: 'relative' }}>
                 <div className="pt-6" style={{ minHeight: '85vh' }}>
                     <div
                         className="container px-3"
@@ -145,28 +145,28 @@ const Home = () => {
 
             <div className="has-background-hgra2">
                 {/* about */}
-                <SectionLayout>
+                <SectionLayout id="about">
                     <AboutSection />
                 </SectionLayout>
 
                 {/* Gallery */}
-                <SectionLayout>
+                <SectionLayout id="gallery">
                     <GallerySection />
                 </SectionLayout>
             </div>
 
             {/* roadmap */}
-            <SectionLayout className="has-background-hgra2">
+            <SectionLayout id="roadmap" className="has-background-hgra2">
                 <RoadmapSection />
             </SectionLayout>
 
             {/* team */}
-            <SectionLayout className="has-background-hgra2">
+            <SectionLayout id="team" className="has-background-hgra2">
                 <TeamSection />
             </SectionLayout>
 
             {/* faq */}
-            <SectionLayout className="has-background-hgra2">
+            <SectionLayout id="faq" className="has-background-hgra2">
                 <FaqSection />
             </SectionLayout>
         </MainLayout>

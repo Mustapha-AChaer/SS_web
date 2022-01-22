@@ -21,7 +21,7 @@ body,
     padding: 0;
 
     @extend .coolscroll;
-
+    scroll-behavior: smooth;
     // overflow: hidden;
 }
 
