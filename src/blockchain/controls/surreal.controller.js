@@ -25,7 +25,7 @@ const surreal_controller = () => {
             return tx;
         },
         totalSupply: async () => {
-            return await ss_contract.methods.totalSupply().call();
+            return await ss_contract_read.methods.totalSupply().call();
         },
         mint: () => {
             const tx = ss_contract.methods.mint();

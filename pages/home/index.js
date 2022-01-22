@@ -26,10 +26,10 @@ const Home = () => {
     const { mintReducer } = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
-        dispatch(fetch_total_white_mints());
-    }, [web3Reducer]);
+    // useEffect(() => {
+    //     if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
+    //     dispatch(fetch_total_white_mints());
+    // }, [web3Reducer]);
 
     return (
         <MainLayout>
@@ -66,8 +66,8 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button>
-                                {/* <ConnectedWrapper
+                                {/* <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button> */}
+                                <ConnectedWrapper
                                     disconnectedComponent={
                                         <button className="button is-medium is-hgra1 has-text-white px-6">
                                             JOIN DISCORD
@@ -77,17 +77,17 @@ const Home = () => {
                                     <NetworkWrapper
                                         info={
                                             <SwitchNetworkButton
-                                                chainId={4}
+                                                chainId={1}
                                                 className="button is-medium is-hgra1 has-text-white px-6"
                                             >
                                                 Switch to eth mainnet
                                             </SwitchNetworkButton>
                                         }
-                                        chainIds={[4]}
+                                        chainIds={[1]}
                                     >
                                         <WhiteMintSection />
                                     </NetworkWrapper>
-                                </ConnectedWrapper> */}
+                                </ConnectedWrapper>
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>
