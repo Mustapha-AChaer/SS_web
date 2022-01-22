@@ -35,13 +35,12 @@ export const white_mint_tx = (txArguments) => {
         const surreal = new surreal_controller();
 
         const tx = surreal.whiteMint();
-        console.log(tx);
 
         try {
             const res = await tx.send({
                 from: walletReducer.address,
                 value: amount,
-                // value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
+                value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
             });
 
             dispatch(tx_success('whiteMintTx', res));
@@ -114,8 +113,7 @@ export const mint_tx = (txArguments) => {
         try {
             const res = await tx.send({
                 from: walletReducer.address,
-                value: amount,
-                // value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
+                value: web3.utils.toWei((amount * 0.15).toString(), 'ether'),
             });
 
             dispatch(tx_success('mintTx', res));
