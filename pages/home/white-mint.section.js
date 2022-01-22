@@ -38,7 +38,7 @@ const MintSection = () => {
         if (!web3Reducer.initialized || !walletReducer.isLoggedIn) return;
 
         dispatch(fetch_user_white_listed());
-        // dispatch(fetch_mints_left());
+        dispatch(fetch_mints_left());
     }, [web3Reducer, walletReducer, mintReducer.whiteMintTx]);
 
     useEffect(() => {

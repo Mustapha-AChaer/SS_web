@@ -26,10 +26,10 @@ const Home = () => {
     const { mintReducer } = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
-    //     dispatch(fetch_total_white_mints());
-    // }, [web3Reducer]);
+    useEffect(() => {
+        if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
+        dispatch(fetch_total_white_mints());
+    }, [web3Reducer]);
 
     return (
         <MainLayout>
@@ -132,13 +132,13 @@ const Home = () => {
             <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
                     <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
-                        {/* <progress
+                        <progress
                             className="progress is-info"
                             value={(mintReducer.totalWhiteMints / 1500) * 100}
                             max="100"
                         >
                             30%
-                        </progress> */}
+                        </progress>
                     </div>
                 </div>
             </section>
