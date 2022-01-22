@@ -66,8 +66,8 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                {/* <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button> */}
-                                <ConnectedWrapper
+                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button>
+                                {/* <ConnectedWrapper
                                     disconnectedComponent={
                                         <button className="button is-medium is-hgra1 has-text-white px-6">
                                             JOIN DISCORD
@@ -87,7 +87,7 @@ const Home = () => {
                                     >
                                         <WhiteMintSection />
                                     </NetworkWrapper>
-                                </ConnectedWrapper>
+                                </ConnectedWrapper> */}
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>
@@ -132,13 +132,13 @@ const Home = () => {
             <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
                     <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
-                        <progress
+                        {/* <progress
                             className="progress is-info"
                             value={(mintReducer.totalWhiteMints / 1500) * 100}
                             max="100"
                         >
                             30%
-                        </progress>
+                        </progress> */}
                     </div>
                 </div>
             </section>
