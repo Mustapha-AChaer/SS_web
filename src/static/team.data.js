@@ -42,47 +42,45 @@ const data = [
             "CEO of buildingideas.io and currently leading the blockchain research side of the team, don't mention Merkle trees unless you want to hear him talking nonstop for hours. Responsible for working in the smart contracts alongside The New Guy.",
     },
     {
-        name: 'EMANUEL',
-        position: 'Project Manager',
-        image: '/team/7.jpg',
-        description:
-            "The planner. He is in charge of making sure that the development of the project follows a structure, and that the team doesn't lose focus. Accomplishing deadlines is his memo.",
+        name: 'EAOE',
+        position: 'Lead Blockchain Developer',
+        image: '/team/eaoe.jpg',
+        description: '',
     },
     {
-        name: 'THE ENGINEER',
-        position: 'QA Analyst',
-        image: '/team/8.jpg',
-        description:
-            'The Engineer has extreme attention to detail, quality is not just an adjective for his work but a way of life.',
-    },
-    {
-        name: 'FACUNDO',
-        position: 'Front-End Developer',
+        name: 'LOQUE',
+        position: 'Lead Web Developer',
         image: '/team/9.jpg',
-        description:
-            'Facundo is the youngest dev in the team, he loves to make every website mobile responsive down to the detail.',
+        description: '',
     },
-    {
-        name: 'MR. SUSHI',
-        position: 'Lead Front End Engineer',
-        image: '/team/10.jpg',
-        description:
-            'With his challenging and bold designs, Mr. Suchi leads the team to make sure the collections pages are unique and special, just like our NFT.',
-    },
-    {
-        name: 'NEW GUY',
-        position: 'Blockchain Developer & Software',
-        image: '/team/11.jpg',
-        description:
-            'Blockchain and backend developer, he’s the big thinker, he and Santypk4 are in charge of building the most innovative smart contracts to the collections that they choose.',
-    },
-    {
-        name: 'ACE',
-        position: 'Web Developer',
-        image: '/team/12.jpg',
-        description:
-            'Ace is a seasoned developer that has worked with thousands of clients around the world to provide high-level front end designs for all kinds of websites. His experience in WordPress, Custom Coding, Front-End Design and Graphic Design makes him the perfect fit to be the lead Web Designer at Surreal Society.',
-    },
+    // {
+    //     name: 'FACUNDO',
+    //     position: 'Front-End Developer',
+    //     image: '/team/9.jpg',
+    //     description:
+    //         'Facundo is the youngest dev in the team, he loves to make every website mobile responsive down to the detail.',
+    // },
+    // {
+    //     name: 'MR. SUSHI',
+    //     position: 'Lead Front End Engineer',
+    //     image: '/team/10.jpg',
+    //     description:
+    //         'With his challenging and bold designs, Mr. Suchi leads the team to make sure the collections pages are unique and special, just like our NFT.',
+    // },
+    // {
+    //     name: 'NEW GUY',
+    //     position: 'Blockchain Developer & Software',
+    //     image: '/team/11.jpg',
+    //     description:
+    //         'Blockchain and backend developer, he’s the big thinker, he and Santypk4 are in charge of building the most innovative smart contracts to the collections that they choose.',
+    // },
+    // {
+    //     name: 'ACE',
+    //     position: 'Web Developer',
+    //     image: '/team/12.jpg',
+    //     description:
+    //         'Ace is a seasoned developer that has worked with thousands of clients around the world to provide high-level front end designs for all kinds of websites. His experience in WordPress, Custom Coding, Front-End Design and Graphic Design makes him the perfect fit to be the lead Web Designer at Surreal Society.',
+    // },
 ];
 
 export default data;

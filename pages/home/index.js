@@ -5,6 +5,7 @@ import SectionLayout from 'src/layouts/section';
 
 import ParticlesBanner from 'src/components/banner-background';
 
+import WhiteMintSection from './white-mint.section';
 import MintSection from './mint.section';
 
 import AboutSection from './about.section';
@@ -21,12 +22,12 @@ import { fetch_total_white_mints } from 'src/redux/actions/mintActions';
 import styles from './home.module.scss';
 
 const Home = () => {
-    const { web3Reducer } = useCelesteSelector((state) => state);
+    const { web3Reducer, walletReducer } = useCelesteSelector((state) => state);
     const { mintReducer } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!web3Reducer.initialized) return;
+        if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
         dispatch(fetch_total_white_mints());
     }, [web3Reducer]);
 
@@ -76,15 +77,15 @@ const Home = () => {
                                     <NetworkWrapper
                                         info={
                                             <SwitchNetworkButton
-                                                chainId={1}
+                                                chainId={4}
                                                 className="button is-medium is-hgra1 has-text-white px-6"
                                             >
                                                 Switch to eth mainnet
                                             </SwitchNetworkButton>
                                         }
-                                        chainIds={[1]}
+                                        chainIds={[4]}
                                     >
-                                        <MintSection />
+                                        <WhiteMintSection />
                                     </NetworkWrapper>
                                 </ConnectedWrapper>
                             </div>
@@ -131,7 +132,11 @@ const Home = () => {
             <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
                     <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
-                        <progress class="progress is-info" value={(mintReducer.totalWhiteMints / 1500) * 100} max="100">
+                        <progress
+                            className="progress is-info"
+                            value={(mintReducer.totalWhiteMints / 1500) * 100}
+                            max="100"
+                        >
                             30%
                         </progress>
                     </div>

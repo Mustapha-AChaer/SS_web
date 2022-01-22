@@ -16,6 +16,7 @@ const generic_tx = {
 
 const defaultState = {
     whiteMintTx: { ...generic_tx },
+    mintTx: { ...generic_tx },
     userIsWhiteListed: false,
     mintsLeft: 0,
     totalWhiteMints: 0,
@@ -58,7 +59,7 @@ const reducer = (state = defaultState, action) => {
         case SET_MINTS_LEFT:
             return {
                 ...state,
-                mintsLeft: 10 - action.payload,
+                mintsLeft: 3 - action.payload,
             };
 
         case SET_TOTAL_WHITE_MINTS:

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { store as notificationStore } from 'react-notifications-component';
 import { infoNotification } from 'src/static/notifications';
 
-import { fetch_mints_left, fetch_user_white_listed, white_mint_tx } from 'src/redux/actions/mintActions';
+import { mint_tx } from 'src/redux/actions/mintActions';
 
 const MintSection = () => {
     const { web3Reducer, walletReducer } = useCelesteSelector((state) => state);
@@ -24,33 +24,16 @@ const MintSection = () => {
         }),
         onSubmit: (values) => {
             const { amount } = values;
-            console.log(amount);
-            dispatch(white_mint_tx({ amount }));
+            dispatch(mint_tx({ amount }));
         },
     });
-
-    const [mintData, setMintData] = useState({
-        userIsWhiteListed: false,
-        mintsLeft: 0,
-    });
-
-    useEffect(() => {
-        if (!web3Reducer.initialized || !walletReducer.isLoggedIn) return;
-
-        dispatch(fetch_user_white_listed());
-        dispatch(fetch_mints_left());
-    }, [web3Reducer, walletReducer, mintReducer.whiteMintTx]);
-
-    useEffect(() => {
-        notificationStore.addNotification(infoNotification('Fetching wallet data...'));
-    }, []);
 
     const onIncreaseClick = () => {
         if (!web3Reducer.initialized) return;
 
         const currentAmount = formik.values.amount;
 
-        if (currentAmount < mintReducer.mintsLeft) formik.setFieldValue('amount', currentAmount + 1);
+        if (currentAmount < 10) formik.setFieldValue('amount', currentAmount + 1);
     };
 
     const onDecreaseClick = () => {
@@ -63,44 +46,37 @@ const MintSection = () => {
 
     return (
         <Fragment>
-            {mintReducer.userIsWhiteListed ? (
-                <Fragment>
-                    <form onSubmit={formik.handleSubmit}>
-                        <div className="buttons has-text-centered-mobile">
-                            <button
-                                className="button is-hgra1 has-text-white is-size-5 is-rounded"
-                                type="button"
-                                onClick={onDecreaseClick}
-                                disabled={formik.values.amount == 0}
-                            >
-                                -
-                            </button>
+            <form onSubmit={formik.handleSubmit}>
+                <div className="buttons has-text-centered-mobile">
+                    <button
+                        className="button is-hgra1 has-text-white is-size-5 is-rounded"
+                        type="button"
+                        onClick={onDecreaseClick}
+                        disabled={formik.values.amount == 0}
+                    >
+                        -
+                    </button>
 
-                            <button
-                                className={`button is-hgra1 has-text-white is-rounded is-size-5 ${
-                                    mintReducer.whiteMintTx.loading ? 'is-loading' : ''
-                                }`}
-                                type="submit"
-                                disabled={formik.values.amount == 0}
-                            >
-                                Mint {formik.values.amount}
-                            </button>
+                    <button
+                        className={`button is-hgra1 has-text-white is-rounded is-size-5 ${
+                            mintReducer.whiteMintTx.loading ? 'is-loading' : ''
+                        }`}
+                        type="submit"
+                        disabled={formik.values.amount == 0}
+                    >
+                        Mint {formik.values.amount}
+                    </button>
 
-                            <button
-                                className="button is-hgra1 has-text-white is-size-5 is-rounded"
-                                type="button"
-                                onClick={onIncreaseClick}
-                                disabled={formik.values.amount == mintReducer.mintsLeft}
-                            >
-                                +
-                            </button>
-                        </div>
-                        <h1 className="subtitle is-6 has-text-white">Mints Left: {mintReducer.mintsLeft}</h1>
-                    </form>
-                </Fragment>
-            ) : (
-                <h1 className="subtitle is-6 has-text-white has-text-danger">Wallet is not white listed</h1>
-            )}
+                    <button
+                        className="button is-hgra1 has-text-white is-size-5 is-rounded"
+                        type="button"
+                        onClick={onIncreaseClick}
+                    >
+                        +
+                    </button>
+                </div>
+                <h1 className="subtitle is-6 has-text-white">Mints Left: {mintReducer.mintsLeft}</h1>
+            </form>
         </Fragment>
     );
 };

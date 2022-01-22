@@ -1,7 +1,7 @@
 const options = {
     background: {
         color: {
-            value: "#0B0C22",
+            value: '#0B0C22',
         },
     },
     fpsLimit: 30,
@@ -9,11 +9,11 @@ const options = {
         events: {
             onClick: {
                 enable: false,
-                mode: "push",
+                mode: 'push',
             },
             onHover: {
                 enable: false,
-                mode: "repulse",
+                mode: 'repulse',
             },
             resize: true,
         },
@@ -35,10 +35,10 @@ const options = {
     },
     particles: {
         color: {
-            value: "#ffffff",
+            value: '#ffffff',
         },
         links: {
-            color: "#ffffff",
+            color: '#ffffff',
             distance: 150,
             enable: true,
             opacity: 0.08,
@@ -48,27 +48,26 @@ const options = {
             enable: true,
         },
         move: {
-            direction: "none",
+            direction: 'none',
             enable: true,
-            outMode: "bounce",
+            outMode: 'bounce',
             random: false,
             speed: 2,
             straight: false,
         },
         number: {
             density: {
-                enable: true,
+                enable: false,
                 area: 1000,
             },
-            value: 80,
+            value: 40,
         },
         opacity: {
             value: 0.08,
             random: false,
-            
         },
         shape: {
-            type: "circle",
+            type: 'circle',
         },
         size: {
             random: true,

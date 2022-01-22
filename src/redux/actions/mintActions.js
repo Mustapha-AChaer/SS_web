@@ -40,7 +40,8 @@ export const white_mint_tx = (txArguments) => {
         try {
             const res = await tx.send({
                 from: walletReducer.address,
-                value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
+                value: amount,
+                // value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
             });
 
             dispatch(tx_success('whiteMintTx', res));
@@ -93,5 +94,47 @@ export const fetch_total_white_mints = () => {
         const initialMints = 10;
         const tatal_white_mints = totalSupply - initialMints;
         dispatch(set_total_white_mints(tatal_white_mints));
+    };
+};
+
+export const mint_tx = (txArguments) => {
+    return async (dispatch, _getState, celesteStore) => {
+        dispatch(tx_loading('mintTx'));
+
+        const { web3Reducer, walletReducer } = celesteStore.getState();
+        const { web3 } = web3Reducer;
+
+        const { amount } = txArguments;
+
+        const surreal = new surreal_controller();
+
+        const tx = surreal.mint();
+        console.log(amount);
+
+        try {
+            const res = await tx.send({
+                from: walletReducer.address,
+                value: amount,
+                // value: web3.utils.toWei((amount * 0.1).toString(), 'ether'),
+            });
+
+            dispatch(tx_success('mintTx', res));
+
+            notificationStore.addNotification(
+                successNotification('Succesful Transaction', `Minted successfully ${amount} tokens!`)
+            );
+        } catch (error) {
+            if (error.message.includes('User denied transaction signature'))
+                notificationStore.addNotification(
+                    errorNotification('Tx cancelled', 'Transaction was cancelled by user')
+                );
+            else if (error.message.includes('Transaction has been reverted by the EVM'))
+                notificationStore.addNotification(
+                    errorNotification('Tx reverted', 'Transaction has been reverted by the EVM')
+                );
+            else notificationStore.addNotification(errorNotification('Tx failed', error.message));
+
+            dispatch(tx_failed('mintTx', error));
+        }
     };
 };

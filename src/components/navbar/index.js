@@ -88,7 +88,7 @@ const Navbar = (props) => {
                             <a
                                 role="button"
                                 className="button has-background-hwhite-o-2 is-borderless "
-                                href="https://opensea.io/collection/surrealsociety-official"
+                                href="https://opensea.io/collection/official-surreal-society"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={onBurgerClicked2}

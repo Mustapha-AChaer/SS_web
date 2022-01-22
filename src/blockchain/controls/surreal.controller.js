@@ -4,25 +4,32 @@ import co from 'src/components/celeste/celeste-options';
 import surrealABI from 'src/blockchain/abis/surreal.json';
 
 const surreal_controller = () => {
-    const surrealAddress = co.addressBook.SURREAL;
-
     const contracts = celesteStore.getState().web3Reducer.contracts;
-    const contract = contracts.SURREAL;
-    const contract_read = contracts.SURREAL_READ;
+    const ss_contract = contracts.SURREAL;
+    const ss_wl_contract = contracts.SURREAL_WHITE_LIST;
+    const erc_721_contract = contracts.ERC721;
+
+    const ss_contract_read = contracts.SURREAL_READ;
+    const ss_wl_contract_read = contracts.SURREAL_WHITE_LIST_READ;
+    const erc_721_contract_read = contracts.ERC721_READ;
 
     return {
         whiteListed: async (address) => {
-            return await contract.methods.whiteListed(address).call();
+            return await ss_wl_contract.methods.whiteListed(address).call();
         },
         userWhiteMints: async (address) => {
-            return await contract.methods.userWhiteMints(address).call();
+            return await ss_wl_contract.methods.userWhiteMints(address).call();
         },
         whiteMint: () => {
-            const tx = contract.methods.whiteMint();
+            const tx = ss_wl_contract.methods.whiteMint();
             return tx;
         },
         totalSupply: async () => {
-            return await contract_read.methods.totalSupply().call();
+            return await ss_contract.methods.totalSupply().call();
+        },
+        mint: () => {
+            const tx = ss_contract.methods.mint();
+            return tx;
         },
     };
 };
