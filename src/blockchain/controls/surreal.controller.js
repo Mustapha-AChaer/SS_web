@@ -14,11 +14,14 @@ const surreal_controller = () => {
     const erc_721_contract_read = contracts.ERC721_READ;
 
     return {
-        whiteListed: async (address) => {
+        whiteListed: async address => {
             return await ss_wl_contract.methods.whiteListed(address).call();
         },
-        userWhiteMints: async (address) => {
+        userWhiteMints: async address => {
             return await ss_wl_contract.methods.userWhiteMints(address).call();
+        },
+        whiteMinted: async () => {
+            return await ss_wl_contract_read.methods.whiteMinted().call();
         },
         whiteMint: () => {
             const tx = ss_wl_contract.methods.whiteMint();

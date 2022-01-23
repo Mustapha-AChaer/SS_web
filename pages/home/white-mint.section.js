@@ -8,11 +8,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { store as notificationStore } from 'react-notifications-component';
 import { infoNotification } from 'src/static/notifications';
 
-import { fetch_mints_left, fetch_user_white_listed, white_mint_tx } from 'src/redux/actions/mintActions';
+import {
+    fetch_mints_left,
+    fetch_user_white_listed,
+    white_mint_tx,
+    fetch_total_white_mints,
+} from 'src/redux/actions/mintActions';
 
 const MintSection = () => {
-    const { web3Reducer, walletReducer } = useCelesteSelector((state) => state);
-    const { mintReducer } = useSelector((state) => state);
+    const { web3Reducer, walletReducer } = useCelesteSelector(state => state);
+    const { mintReducer } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -22,7 +27,7 @@ const MintSection = () => {
         validationSchema: yup.object({
             amount: yup.number().positive().required('Amount is required'),
         }),
-        onSubmit: (values) => {
+        onSubmit: values => {
             const { amount } = values;
             console.log(amount);
             dispatch(white_mint_tx({ amount }));
@@ -39,6 +44,7 @@ const MintSection = () => {
 
         dispatch(fetch_user_white_listed());
         dispatch(fetch_mints_left());
+        dispatch(fetch_total_white_mints());
     }, [web3Reducer, walletReducer, mintReducer.whiteMintTx]);
 
     useEffect(() => {
@@ -50,7 +56,8 @@ const MintSection = () => {
 
         const currentAmount = formik.values.amount;
 
-        if (currentAmount < mintReducer.mintsLeft) formik.setFieldValue('amount', currentAmount + 1);
+        if (currentAmount < mintReducer.mintsLeft && currentAmount < 1500 - mintReducer.totalWhiteMints)
+            formik.setFieldValue('amount', currentAmount + 1);
     };
 
     const onDecreaseClick = () => {
@@ -81,7 +88,8 @@ const MintSection = () => {
                                     mintReducer.whiteMintTx.loading ? 'is-loading' : ''
                                 }`}
                                 type="submit"
-                                disabled={formik.values.amount == 0}
+                                // disabled={formik.values.amount == 0 || mintReducer.totalWhiteMints >= 1500}
+                                disabled
                             >
                                 Mint {formik.values.amount}
                             </button>
@@ -95,7 +103,12 @@ const MintSection = () => {
                                 +
                             </button>
                         </div>
-                        <h1 className="subtitle is-6 has-text-white">Mints Left: {mintReducer.mintsLeft}</h1>
+                        <h1 className="subtitle is-6 has-text-white mb-1">
+                            White Mints Left for this wallet: {mintReducer.mintsLeft}
+                        </h1>
+                        <h1 className="subtitle is-6 has-text-white">
+                            Total White Mints Left: {1500 - mintReducer.totalWhiteMints}
+                        </h1>
                     </form>
                 </Fragment>
             ) : (

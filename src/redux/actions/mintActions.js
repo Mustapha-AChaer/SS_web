@@ -14,16 +14,16 @@ import surreal_controller from 'src/blockchain/controls/surreal.controller';
 /* *~~*~~*~~*~~*~~*~~* CONTS DEFINITION *~~*~~*~~*~~*~~*~~* */
 
 /* *~~*~~*~~*~~*~~*~~* TX PLAIN ACTIONS *~~*~~*~~*~~*~~*~~* */
-const tx_loading = (txName) => ({ type: TX_LOADING, txName });
+const tx_loading = txName => ({ type: TX_LOADING, txName });
 const tx_failed = (txName, errorData) => ({ type: TX_FAILED, txName, data: errorData });
 const tx_success = (txName, data) => ({ type: TX_SUCCESS, txName, data });
 
-const set_user_is_white_listed = (isWhiteListed) => ({ type: SET_USER_IS_WHITE_LISTED, payload: isWhiteListed });
-const set_mints_left = (mintsLeft) => ({ type: SET_MINTS_LEFT, payload: mintsLeft });
-const set_total_white_mints = (totalWhiteMints) => ({ type: SET_TOTAL_WHITE_MINTS, payload: totalWhiteMints });
+const set_user_is_white_listed = isWhiteListed => ({ type: SET_USER_IS_WHITE_LISTED, payload: isWhiteListed });
+const set_mints_left = mintsLeft => ({ type: SET_MINTS_LEFT, payload: mintsLeft });
+const set_total_white_mints = totalWhiteMints => ({ type: SET_TOTAL_WHITE_MINTS, payload: totalWhiteMints });
 
 /* *~~*~~*~~*~~*~~*~~* TX THUNKER ACTIONS *~~*~~*~~*~~*~~*~~* */
-export const white_mint_tx = (txArguments) => {
+export const white_mint_tx = txArguments => {
     return async (dispatch, getState, celesteStore) => {
         dispatch(tx_loading('whiteMintTx'));
 
@@ -87,16 +87,15 @@ export const fetch_mints_left = () => {
 };
 
 export const fetch_total_white_mints = () => {
-    return async (dispatch) => {
+    return async dispatch => {
         const surreal = new surreal_controller();
-        const totalSupply = await surreal.totalSupply();
-        const initialMints = 10;
-        const tatal_white_mints = totalSupply - initialMints;
-        dispatch(set_total_white_mints(tatal_white_mints));
+        const totalSupply = await surreal.whiteMinted();
+        const total_white_mints = totalSupply;
+        dispatch(set_total_white_mints(total_white_mints));
     };
 };
 
-export const mint_tx = (txArguments) => {
+export const mint_tx = txArguments => {
     return async (dispatch, _getState, celesteStore) => {
         dispatch(tx_loading('mintTx'));
 

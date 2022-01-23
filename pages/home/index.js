@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import MainLayout from 'src/layouts/main';
 import SectionLayout from 'src/layouts/section';
 
@@ -16,21 +14,10 @@ import FaqSection from './faq.section';
 
 import { ConnectedWrapper, NetworkWrapper, SwitchNetworkButton, useCelesteSelector } from 'celeste-framework';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { fetch_total_white_mints } from 'src/redux/actions/mintActions';
-
 import styles from './home.module.scss';
+import MintBar from 'src/components/mint-bar';
 
 const Home = () => {
-    const { web3Reducer, walletReducer } = useCelesteSelector((state) => state);
-    const { mintReducer } = useSelector((state) => state);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!web3Reducer.initialized || walletReducer.chainId != 4) return;
-        dispatch(fetch_total_white_mints());
-    }, [web3Reducer]);
-
     return (
         <MainLayout>
             <div className={`${styles.particles_bg}`} style={{ height: '100vh' }}>
@@ -132,13 +119,7 @@ const Home = () => {
             <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
                     <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
-                        <progress
-                            className="progress is-info"
-                            value={(mintReducer.totalWhiteMints / 1500) * 100}
-                            max="100"
-                        >
-                            30%
-                        </progress>
+                        <MintBar />
                     </div>
                 </div>
             </section>
