@@ -15,6 +15,8 @@ import {
     fetch_total_white_mints,
 } from 'src/redux/actions/mintActions';
 
+const mint_enabled = false;
+
 const MintSection = () => {
     const { web3Reducer, walletReducer } = useCelesteSelector(state => state);
     const { mintReducer } = useSelector(state => state);
@@ -28,8 +30,8 @@ const MintSection = () => {
             amount: yup.number().positive().required('Amount is required'),
         }),
         onSubmit: values => {
-            const { amount } = values;
-            console.log(amount);
+            if(!mint_enabled) return;
+            const { amount } = values;            
             dispatch(white_mint_tx({ amount }));
         },
     });
@@ -72,8 +74,8 @@ const MintSection = () => {
         <Fragment>
             {mintReducer.userIsWhiteListed ? (
                 <Fragment>
-                    <form onSubmit={formik.handleSubmit}>
-                        <div className="buttons has-text-centered-mobile">
+                    <form onSubmit={formik.handleSubmit} >
+                        <div className="has-text-centered-mobile">
                             <button
                                 className="button is-hgra1 has-text-white is-size-5 is-rounded"
                                 type="button"
@@ -81,7 +83,7 @@ const MintSection = () => {
                                 disabled={formik.values.amount == 0}
                             >
                                 -
-                            </button>
+                            </button> &nbsp;
 
                             <button
                                 className={`button is-hgra1 has-text-white is-rounded is-size-5 ${
@@ -92,7 +94,7 @@ const MintSection = () => {
                                 disabled
                             >
                                 Mint {formik.values.amount}
-                            </button>
+                            </button> &nbsp;
 
                             <button
                                 className="button is-hgra1 has-text-white is-size-5 is-rounded"
@@ -103,6 +105,7 @@ const MintSection = () => {
                                 +
                             </button>
                         </div>
+                        <br/>
                         <h1 className="subtitle is-6 has-text-white mb-1">
                             White Mints Left for this wallet: {mintReducer.mintsLeft}
                         </h1>

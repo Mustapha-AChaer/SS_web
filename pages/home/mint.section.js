@@ -95,9 +95,7 @@ const MintSection = () => {
                         +
                     </button>
                 </div>       
-                <h1 className="subtitle is-6 has-text-white">
-                    Total Mints: {totalSupply}
-                </h1>         
+                  
             </form>
         </Fragment>
     );
