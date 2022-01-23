@@ -79,7 +79,7 @@ const MintSection = () => {
 
                     <button
                         className={`button is-hgra1 has-text-white is-rounded is-size-5 ${
-                            mintReducer.whiteMintTx.loading ? 'is-loading' : ''
+                            mintReducer.mintTx.loading ? 'is-loading' : ''
                         }`}
                         type="submit"
                         disabled={formik.values.amount == 0}
