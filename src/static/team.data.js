@@ -29,7 +29,7 @@ const data = [
     },
     {
         name: 'NIZZY',
-        position: 'Cummunity Moderator',
+        position: 'Community Moderator',
         image: '/team/5.jpg',
         description:
             'Nizzy is the Head Community Moderator for the Surreal Society. On a typical day, you can find Nizzy in Discord chatting it up with the Community. His background in Human resources makes him perfect to handle our community, public relations, and lead our community team.',
