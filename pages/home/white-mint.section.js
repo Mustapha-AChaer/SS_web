@@ -15,7 +15,7 @@ import {
     fetch_total_white_mints,
 } from 'src/redux/actions/mintActions';
 
-const mint_enabled = false;
+const mint_enabled = true;
 
 const MintSection = () => {
     const { web3Reducer, walletReducer } = useCelesteSelector(state => state);
@@ -30,8 +30,8 @@ const MintSection = () => {
             amount: yup.number().positive().required('Amount is required'),
         }),
         onSubmit: values => {
-            if(!mint_enabled) return;
-            const { amount } = values;            
+            if (!mint_enabled) return;
+            const { amount } = values;
             dispatch(white_mint_tx({ amount }));
         },
     });
@@ -74,7 +74,7 @@ const MintSection = () => {
         <Fragment>
             {mintReducer.userIsWhiteListed ? (
                 <Fragment>
-                    <form onSubmit={formik.handleSubmit} >
+                    <form onSubmit={formik.handleSubmit}>
                         <div className="has-text-centered-mobile">
                             <button
                                 className="button is-hgra1 has-text-white is-size-5 is-rounded"
@@ -83,19 +83,19 @@ const MintSection = () => {
                                 disabled={formik.values.amount == 0}
                             >
                                 -
-                            </button> &nbsp;
-
+                            </button>{' '}
+                            &nbsp;
                             <button
                                 className={`button is-hgra1 has-text-white is-rounded is-size-5 ${
                                     mintReducer.whiteMintTx.loading ? 'is-loading' : ''
                                 }`}
                                 type="submit"
-                                // disabled={formik.values.amount == 0 || mintReducer.totalWhiteMints >= 1500}
-                                disabled
+                                disabled={formik.values.amount == 0 || mintReducer.totalWhiteMints >= 1500}
+                                // disabled
                             >
                                 Mint {formik.values.amount}
-                            </button> &nbsp;
-
+                            </button>{' '}
+                            &nbsp;
                             <button
                                 className="button is-hgra1 has-text-white is-size-5 is-rounded"
                                 type="button"
@@ -105,7 +105,7 @@ const MintSection = () => {
                                 +
                             </button>
                         </div>
-                        <br/>
+                        <br />
                         <h1 className="subtitle is-6 has-text-white mb-1">
                             White Mints Left for this wallet: {mintReducer.mintsLeft}
                         </h1>

@@ -1,3 +1,5 @@
+// import { useState } from 'react';
+
 import MainLayout from 'src/layouts/main';
 import SectionLayout from 'src/layouts/section';
 
@@ -18,6 +20,9 @@ import styles from './home.module.scss';
 import MintBar from 'src/components/mint-bar';
 
 const Home = () => {
+    // const [date, setDate] = useState(new Date());
+    // console.log(date);
+
     return (
         <MainLayout>
             <div className={`${styles.particles_bg}`} style={{ height: '100vh' }}>
