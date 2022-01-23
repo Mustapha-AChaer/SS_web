@@ -8,12 +8,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { store as notificationStore } from 'react-notifications-component';
 import { infoNotification } from 'src/static/notifications';
 
+import surreal_controller from 'src/blockchain/controls/surreal.controller';
+
 import { mint_tx } from 'src/redux/actions/mintActions';
 
 const MintSection = () => {
     const { web3Reducer, walletReducer } = useCelesteSelector((state) => state);
     const { mintReducer } = useSelector((state) => state);
     const dispatch = useDispatch();
+
+    const [totalSupply, setTotalSupply] = useState(0);
 
     const formik = useFormik({
         initialValues: {
@@ -28,12 +32,28 @@ const MintSection = () => {
         },
     });
 
+    useEffect(
+        () => {
+            if(!web3Reducer.initialized) return;
+            
+            (
+                async () => {
+                    const surreal = new surreal_controller();
+
+                    const _totalSupply = await surreal.totalSupply();
+                    setTotalSupply(_totalSupply);
+                }
+            )();
+
+        }, [web3Reducer]
+    );
+
     const onIncreaseClick = () => {
         if (!web3Reducer.initialized) return;
 
         const currentAmount = formik.values.amount;
 
-        if (currentAmount < 10) formik.setFieldValue('amount', currentAmount + 1);
+        if (totalSupply < 5000) formik.setFieldValue('amount', currentAmount + 1);
     };
 
     const onDecreaseClick = () => {
@@ -74,8 +94,10 @@ const MintSection = () => {
                     >
                         +
                     </button>
-                </div>
-                <h1 className="subtitle is-6 has-text-white">Mints Left: {mintReducer.mintsLeft}</h1>
+                </div>       
+                <h1 className="subtitle is-6 has-text-white">
+                    Total Mints: {totalSupply}
+                </h1>         
             </form>
         </Fragment>
     );

@@ -6,6 +6,8 @@ module.exports = {
     images: {
         domains: ['https://picsum.photos/'],
     },
+    compress: true,
+    productionBrowserSourceMaps: false,
   // async redirects() {
   //     return [
   //         {

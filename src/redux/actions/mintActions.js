@@ -107,7 +107,6 @@ export const mint_tx = txArguments => {
         const surreal = new surreal_controller();
 
         const tx = surreal.mint();
-        console.log(amount);
 
         try {
             const res = await tx.send({
