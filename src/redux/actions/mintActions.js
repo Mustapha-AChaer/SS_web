@@ -111,7 +111,7 @@ export const mint_tx = txArguments => {
         try {
             const res = await tx.send({
                 from: walletReducer.address,
-                value: web3.utils.toWei((parseFloat((amount*0.15).toFixed(2)).toString(), 'ether'), 
+                value: 0, 
             });
 
             dispatch(tx_success('mintTx', res));
