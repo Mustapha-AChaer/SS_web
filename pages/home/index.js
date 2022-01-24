@@ -77,7 +77,7 @@ const Home = () => {
                                         }
                                         chainIds={[1]}
                                     >
-                                        <WhiteMintSection />
+                                        <MintSection />
                                     </NetworkWrapper>
                                 </ConnectedWrapper>
                             </div>
