@@ -111,7 +111,7 @@ export const mint_tx = txArguments => {
         try {
             const res = await tx.send({
                 from: walletReducer.address,
-                value: (15 * 10 ** 17).toString(),
+                value: parseFloat((3*0.15).toFixed(2)) * 10 ** 17
             });
 
             dispatch(tx_success('mintTx', res));
