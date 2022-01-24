@@ -77,7 +77,7 @@ const Home = () => {
                                         }
                                         chainIds={[1]}
                                     >
-                                       {/* <MintSection /> */ }
+                                        <MintSection />
                                     </NetworkWrapper>
                                 </ConnectedWrapper>
                             </div>

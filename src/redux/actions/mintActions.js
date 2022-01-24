@@ -108,10 +108,13 @@ export const mint_tx = txArguments => {
 
         const tx = surreal.mint();
 
+        const priceFixed = parseFloat(amount * 0.15).toFixed(2);
+        const priceInWei = web3.utils.toWei(priceFixed.toString(), 'ether');
+
         try {
             const res = await tx.send({
                 from: walletReducer.address,
-                value: 0, 
+                value: priceInWei,
             });
 
             dispatch(tx_success('mintTx', res));
