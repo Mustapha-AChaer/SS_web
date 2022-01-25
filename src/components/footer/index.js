@@ -1,4 +1,6 @@
-const footer = (props) => {
+import Link from 'next/link';
+
+const footer = props => {
     return (
         <footer className="footer has-background-hdarkpurple py-5">
             <div className="container has-text-centered">
@@ -10,7 +12,11 @@ const footer = (props) => {
                         </h1>
                     </div>
                     <div className="column is-4">
-                        <h1 className="subtitle has-text-white has-text-centered is-7">Terms of Service</h1>
+                        <h1 className="subtitle has-text-centered is-7">
+                            <Link href="/legal">
+                                <a className="has-text-white">Terms of Service</a>
+                            </Link>
+                        </h1>
                     </div>
                     <div className="column is-4">
                         <h1 className="subtitle has-text-right has-text-centered-mobile is-7">

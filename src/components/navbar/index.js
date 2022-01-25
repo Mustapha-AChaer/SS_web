@@ -6,7 +6,7 @@ import { animated, useSpring } from 'react-spring';
 
 import Link from 'next/link';
 
-const Navbar = (props) => {
+const Navbar = props => {
     //change color of navbar when scrolling
     const [scroll, setScroll] = useState(10);
     const styles = useSpring({ background: scroll > 100 ? '#0B0C22' : 'rgba(0,0,0,0)' });
@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const onBurgerClicked = (e) => {
+    const onBurgerClicked = e => {
         e.preventDefault();
         setIsOpen(!isOpen);
     };
@@ -60,29 +60,29 @@ const Navbar = (props) => {
 
                 <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
                     <div className="navbar-start has-text-centered">
-                        <a href="#home" className="navbar-item has-text-white">
-                            Home
-                        </a>
+                        <Link href="/home#home">
+                            <a className="navbar-item has-text-white">Home</a>
+                        </Link>
 
-                        <a href="#benefits" className="navbar-item has-text-white">
-                            Benefits
-                        </a>
+                        <Link href="/home">
+                            <a className="navbar-item has-text-white is-hidden">Benefits</a>
+                        </Link>
 
-                        <a href="#gallery" className="navbar-item has-text-white">
-                            Gallery
-                        </a>
+                        <Link href="/home#gallery">
+                            <a className="navbar-item has-text-white">Gallery</a>
+                        </Link>
 
-                        <a href="#roadmap" className="navbar-item has-text-white">
-                            Road Map
-                        </a>
+                        <Link href="/home#roadmap">
+                            <a className="navbar-item has-text-white">Road Map</a>
+                        </Link>
 
-                        <a href="#team" className="navbar-item has-text-white ">
-                            Team
-                        </a>
+                        <Link href="/home#team">
+                            <a className="navbar-item has-text-white ">Team</a>
+                        </Link>
 
-                        <a href="#faq" className="navbar-item has-text-white">
-                            FAQ's
-                        </a>
+                        <Link href="/home#faq">
+                            <a className="navbar-item has-text-white">FAQ's</a>
+                        </Link>
                     </div>
 
                     <div className="navbar-end has-text-centered">

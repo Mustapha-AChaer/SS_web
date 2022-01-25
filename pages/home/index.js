@@ -121,13 +121,13 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
+            {/* <section className={`hero is-small is-hgra1 ${styles.minted_title}`} style={{ overflow: 'hidden' }}>
                 <div className="hero-body has-text-centered">
                     <div className="container" style={{ height: '50px', display: 'grid', placeItems: 'center' }}>
                         <MintBar />
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <div className="has-background-hgra2">
                 {/* about */}
