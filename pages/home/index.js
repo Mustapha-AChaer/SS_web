@@ -58,8 +58,8 @@ const Home = () => {
                                     utilities, and rewards.
                                 </p>
                                 <br />
-                                {/* <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button> */}
-                                <ConnectedWrapper
+                                <button className="button is-medium is-hgra1 has-text-white px-6">JOIN DISCORD</button> 
+                                {/* <ConnectedWrapper
                                     disconnectedComponent={
                                         <button className="button is-medium is-hgra1 has-text-white px-6">
                                             JOIN DISCORD
@@ -79,7 +79,7 @@ const Home = () => {
                                     >
                                         <MintSection />
                                     </NetworkWrapper>
-                                </ConnectedWrapper>
+                                </ConnectedWrapper> */}
                             </div>
                             <div className="column">
                                 <div className={styles.logo_bg}></div>
