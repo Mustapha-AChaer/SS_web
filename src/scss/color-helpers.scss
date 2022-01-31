@@ -4,6 +4,7 @@
 
 $levels: 10;
 $corners: "top", "right", "bottom", "left";
+$new-black: #0b0d21;
 
 @mixin bg-blur-list {
   @for $i from 1 through 4 {

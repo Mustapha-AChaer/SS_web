@@ -1,0 +1,24 @@
+@import 'src/scss/vars';
+
+.bar {
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 9999px;
+    display: block;
+    height: 1rem;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    background: $hdeepblue2 !important;
+    border-color: $hdeepblue2 !important;
+    color: $hdeepblue2 !important;
+    background-color: $hdeepblue2 !important;
+
+    ::after,
+    ::before {
+        background: $hdeepblue2 !important;
+        border-color: $hdeepblue2 !important;
+        color: $hdeepblue2 !important;
+        background-color: $hdeepblue2 !important;
+    }
+}

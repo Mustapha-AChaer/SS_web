@@ -32,7 +32,7 @@ const AboutSection = () => {
                                             styles.timeline_marker
                                         }
                                     >
-                                        <i className={`fa-solid fa-${i + 1}`}></i>
+                                        <i className={`fa-solid fa-${i}`}></i>
                                     </div>
                                     <div className="timeline-content " style={{ width: '100%', paddingLeft: '3rem' }}>
                                         <div

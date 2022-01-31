@@ -45,25 +45,7 @@ const faq = [
             </div>
         ),
     },
-    {
-        question: 'How can I purchase a Surreal Society NFT?', //8
-        answer: () => (
-            <div className="has-text-hpurple3">
-                We will announce a pre-sale and public-sale launch date relatively soon… once the sale is live, you will
-                connect your Metamask wallet to our website, and mint from there! If you do not know how to do this,
-                that is okay! We will be supplying an in-depth tutorial very soon.
-            </div>
-        ),
-    },
-    {
-        question: 'When is the Launch Date?', //8
-        answer: () => (
-            <div className="has-text-hpurple3">
-                Pre-Sale: January 23th <br />
-                Public Sale: January 23th
-            </div>
-        ),
-    },
+
     {
         question: 'How much does one Surreal Society NFT cost?', //8
         answer: () => (

@@ -1,18 +1,23 @@
 const data = [
     {
-        title: 'Project Launch',
+        title: 'ROADMAP REMINDER',
         description:
-            "Quality comes first. We are going to make sure that our project launch is as seamless as possible. We will mint all 5,000 NFTs on this website. Our launch date will officially be released as soon as our project's technical aspects are fully finished. You can stay updated by frequently viewing our announcements channel in our Discord server.",
+            'The roadmap for Surreal Society is designed to be collaborative. We want Surreal Society holders to have their voices heard when making decisions. With a community that can come together to form creative ideas, we believe we can make the Surreal Society a staple in the Web 3 universe. The roadmap listed below is an outline we will follow during our journey.',
     },
     {
-        title: 'THE SURREAL WALLET',
+        title: 'PROJECT LAUNCH',
         description:
-            'Once all 5,000 Surreal Society NFTs have been minted, the Surreal Community Wallet will be funded with 300 ETH. This wallet will also receive 10% of our secondary-sales royalties. Additionally, our founders and investors will be putting their own ETH in the Surreal Community Wallet at random times! The awesome part about the Surreal Community Wallet is that it will be governed by all of our holders, meaning they will be able to vote on how we use over 300 ETH.',
+            'Quality comes first. We are going to make sure that our project launch is as seamless as possible. We will mint all 5,000 NFTs on this website. There will be 3 total phases of our mint (Genesis, Rare, Common). You can stay updated by frequently viewing our announcements channel in our Discord server.',
     },
     {
-        title: 'BAYC GIVEAWAY',
+        title: 'COMMUNITY WALLET',
         description:
-            'We love the community, and we know the community loves us back, so we want to show our appreciation through a record-breaking giveaway. Once Phase 2 gets activated, we will select 3 very lucky winners… who will receive a Bored Ape Yacht Club NFT (currently valued at over $200,000). Additionally, this is the phase that we will be crowning the winner of the invite and meme competition, who will both receive a MAYC NFT. Runner-up rewards are listed in our Discord Server.',
+            'Once all 5,000 Surreal Society NFTs have been minted, the Surreal Community Wallet will be funded with 50% of minting sales, which will be 300 ETH. This wallet will also receive 10% of our secondary-sales royalties, and 50% of royalties from our YouTube ad revenue. The awesome part about the Surreal Community Wallet is that it will be governed by all of our holders, meaning they will be able to vote on how we use over 300 ETH.',
+    },
+    {
+        title: 'DAO INITIATED',
+        description:
+            'In this phase, the DAO will determine how we will host all of the massive giveaways we have promised since the beginning. This will include Bored Ape Yacht Club NFTs, Mutant Ape Yacht Club NFTs, and potentially more! The entire structure of the DAO will be up the what the community decides. Decentralization.',
     },
     {
         title: 'SURREAL NETWORKING',
@@ -22,20 +27,21 @@ const data = [
     {
         title: 'SURREAL NETWORKING',
         description:
-            'The Metaverse is evolving so quickly, and we want to evolve with it as a community. In this phase, we will be purchasing land in whatever Metaverse the community decides. The community will also decide how we will use the purchased land for the Society. Our goal is to provide an immersive experience where users can interact with the community and bring their Surreal NFTs to life.',
+            'A nice ole’ floor sweep will start of Phase 4. With imaginative ideas, good execution, and the right team, we truly believe we can turn the Surreal Society into something special. The main part of this phase is introducing the Society YouTube channel, which will be very similar to MrBeast & MrBeast Gaming. Each Month, members will have the ability to vote for different events, such as crazy competitions, challenges, campaigns, real-life experiences, and so on. All of these crazy events will be filmed, edited by professionals, and uploaded to our YouTube channel. We believe this is a unique way of reaching a new audience and to spread awareness about the Society.',
     },
     {
-        title: 'THE SOCIETY',
+        title: 'METAVERSE',
         description:
-            'This is the phase our team is most excited about. In this phase, we are going to introduce our exclusive community, called The Society. Each NFT will serve as an access token to this community. For the first year, we are going to spend 120 ETH towards these crazy, never seen before events. Each Month, members will have the ability to vote for different events, such as crazy competitions/challenges, project campaigns, real-life experiences, and so on. All of these crazy events will be filmed, edited by professionals, and uploaded to our YouTube channel (similarly to MrBeast & MrBeast Gaming). We believe this is a unique way of reaching a new audience and to spread awareness about the Society.',
+            'The Metaverse is evolving so quickly, and we want to evolve with it as a community. In this phase, we will be purchasing digital real-estate in whatever Metaverse the community decides. The community will also decide how we will use the purchased land for the Society. Our goal is to provide an immersive experience where users can interact with the community and bring their Surreal NFTs to life.',
     },
     {
         title: 'NFT AIRDROP',
         description:
-            'Surreal Society Companions. This has been one of our plans since the very beginning. The main reason our first collection only consists of 5,000 NFTs is due to this planned airdrop. All longtime Surreal Society NFT holders, who meet the requirements, will get airdropped a free NFT, that we have very special plans for. All we’ll say is that we suggest you hold onto your NFTs… more information regarding this soon.',
+            'Surreal Society Companions. This has been one of our plans since the very beginning. The main reason our first collection only consists of 5,000 NFTs is due to this planned airdrop. All longtime Surreal Society NFT holders, who meet the requirements, will get airdropped a free NFT, that we have very special plans for. We cannot say too much yet, but what we’ll say is that we suggest you hold onto your NFTs… more information regarding this soon.',
     },
     {
-        title: 'COMING SOON...',
+        title: 'SURREAL STAKING',
+        description: 'Coming soon...',
     },
 ];
 
