@@ -24,7 +24,6 @@ const MintBar = props => {
             {/*<h1 className="title is-4 has-text-white mb-2">{totalSupply} / 5000</h1>
             <progress className="progress is-info" value={(totalSupply / 5000) * 100} max="100" /> */}
             <h1 className="title is-4 has-text-white mb-2">Hi Genesis Mint: 1000 / 1000</h1>
-
             <progress className={`progress is-dark`} value={(1000 / 1000) * 100} max="100" />
         </Fragment>
     );
